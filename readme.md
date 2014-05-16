@@ -1,6 +1,6 @@
 # Broccolistrap
 
-Bootstrap 3 Official + Jade template w/ Broccoli.
+Bootstrap 3 Sass + Jade template w/ Broccoli.
 
 ## Requirement
 
