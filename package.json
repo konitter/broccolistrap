@@ -1,0 +1,24 @@
+{
+  "name": "Broccolistrap",
+  "version": "0.0.1",
+  "description": "Bootstrap 3 Sass + Jade template with Broccoli.",
+  "main": "Brocfile.js",
+  "scripts": {
+    "start": "broccoli serve",
+    "postinstall": "bower install && cp -r bower/bootstrap-sass-official/vendor/assets/stylesheets src/css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "konitter",
+  "license": "MIT",
+  "devDependencies": {
+    "broccoli": "~0.12.0",
+    "broccoli-sass": "~0.1.4",
+    "broccoli-csso": "~0.2.0",
+    "broccoli-jade": "~0.2.0",
+    "broccoli-file-mover": "~0.3.1",
+    "broccoli-merge-trees": "~0.1.3",
+    "broccoli-load-plugins": "~0.1.0",
+    "broccoli-static-compiler": "~0.1.4",
+    "marked": "~0.3.2"
+  }
+}
