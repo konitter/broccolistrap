@@ -1,11 +1,10 @@
 var $ = require('broccoli-load-plugins')();
 
-var html = $.jade($.staticCompiler('src', {
-  srcDir: '/',
-  files: ['**/*.jade'],
-  destDir: '/'
+var html = $.jade($.select('src', {
+  acceptFiles: ['**/*.jade'],
+  rejectFiles: ['includes/*.jade']
 }), {
-  filename: 'src/includes'
+  basedir: 'src'
 });
 
 var css = 'src/css';
@@ -16,15 +15,12 @@ css = $.fileMover(css, {
   copy: true
 });
 
-var minCss = $.csso($.staticCompiler(css, {
-  srcDir: '/',
-  files: ['**/bootstrap.min.css'],
-  destDir: '/'
+var mincss = $.csso($.select(css, {
+  acceptFiles: ['**/bootstrap.min.css']
 }));
 
-var font = $.staticCompiler('bower/bootstrap-sass-official/vendor/assets/fonts', {
-  srcDir: '/',
-  destDir: '/css'
+var font = $.select('bower/bootstrap-sass-official/vendor/assets/fonts', {
+  outputDir: '/css'
 });
 
-module.exports = $.mergeTrees([html, css, minCss, font], { overwrite: true });
+module.exports = $.mergeTrees([html, css, mincss, font], { overwrite: true });
